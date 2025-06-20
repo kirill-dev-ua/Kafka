@@ -22,16 +22,18 @@ public class KafkaProducerConfig {
         Map<String, Object> configProperties = new HashMap<>();
         configProperties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 
+        // запись order в kafka
         JsonSerializer<Order> serializer = new JsonSerializer<>(objectMapper);
-        serializer.setAddTypeInfo(false);
+        serializer.setAddTypeInfo(false); // тип модели не добавляем в json
 
         return new DefaultKafkaProducerFactory<>(
-                configProperties,
-                new StringSerializer(),
+                configProperties, // подключение
+                new StringSerializer(), // сериализация ключей
                 serializer
         );
     }
 
+    // отослать событие в kafka
     @Bean
     public KafkaTemplate<String, Order> kafkaTemplate(ProducerFactory<String, Order> producerFactory){
         return new KafkaTemplate<>(producerFactory);
