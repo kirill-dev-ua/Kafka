@@ -1,5 +1,6 @@
-package com.example.kafka;
+package com.example.kafka.service;
 
+import com.example.kafka.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;

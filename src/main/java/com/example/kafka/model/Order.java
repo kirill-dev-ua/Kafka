@@ -1,4 +1,4 @@
-package com.example.kafka;
+package com.example.kafka.model;
 
 public record Order(String orderId, String product, Integer quantity) {
 

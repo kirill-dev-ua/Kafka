@@ -1,5 +1,7 @@
-package com.example.kafka;
+package com.example.kafka.controller;
 
+import com.example.kafka.model.Order;
+import com.example.kafka.service.OrderService;
 import org.slf4j.*;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.PostMapping;
