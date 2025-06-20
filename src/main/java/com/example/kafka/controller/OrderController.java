@@ -34,6 +34,7 @@ public class OrderController {
         var orderToSave = new Order(
                 Integer.toString(orderId),
                 productName,
+                order.price(),
                 order.quantity()
         );
         orderService.saveOrder(orderToSave);
