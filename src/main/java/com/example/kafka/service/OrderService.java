@@ -14,7 +14,6 @@ public class OrderService {
     private final OrderKafkaProducer orderKafkaProducer;
 
     public void saveOrder(Order orderToSave) {
-        // передаем в kafka
         orderKafkaProducer.sendOrderToKafka(orderToSave);
         log.info("Order successfully saved: id={}", orderToSave.orderId());
     }

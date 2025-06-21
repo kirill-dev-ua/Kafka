@@ -14,7 +14,6 @@ public class OrderKafkaProducer {
     private final KafkaTemplate<String, Order> kafkaTemplate;
 
     public void sendOrderToKafka(Order order){
-        // отправка в kafka (название топика, ключ для партиции, сериализованный в json объект)
         kafkaTemplate.send("orders", order.orderId(), order);
         log.info("Order sent to kafka: id={}", order.orderId());
     }
